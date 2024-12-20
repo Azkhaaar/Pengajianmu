@@ -1,0 +1,50 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.home {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background-color: #f9f9f9; 
+}
+
+.introduction, .vision-mission, .goals, .information-board {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #ffffff; 
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #e91e63; 
+    transition: color 0.3s ease;
+}
+
+h2:hover {
+    color: #c2185b; 
+}
+
+p {
+    color: #555; 
+    line-height: 1.6; 
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+ul li {
+    margin: 5px 0; 
+    color: #333; 
+}
+
+.information-board {
+    background-color: #e3f2fd; 
+    border-left: 5px solid #2196f3; 
+}
+
+.information-board p {
+    font-weight: bold; 
+}
