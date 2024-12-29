@@ -27,7 +27,14 @@
 .logo-text {
     font-size: 24px;
     font-weight: bold;
-    color: #333;
+}
+
+.pengajian {
+    color: black; /* Warna hitam untuk "Pengajian" */
+}
+
+.mu {
+    color: blue; /* Warna biru untuk "Mu" */
 }
 
 .hamburger {
@@ -81,7 +88,7 @@
         right: 0;
         background-color: white;
         width: 100%;
-        height: calc(100vh - 60px); 
+        height: calc(50vh - 60px); 
         flex-direction: column;
         align-items: center;
         padding: 20px;
@@ -90,7 +97,7 @@
     }
 
     .nav.open {
-        transform: translateX(0); 
+        transform : translateX(0); 
     }
 
     .nav ul {

@@ -13,7 +13,10 @@ const Header = () => {
         <header className="header">
             <div className="logo">
                 <img src={`${process.env.PUBLIC_URL}/image/logo.jpg`} alt="Logo PengajianMu" />
-                <span className="logo-text">PengajianMu</span>
+                <span className="logo-text">
+                    <span className="pengajian">Pengajian</span>
+                    <span className="mu">Mu</span>
+                </span>
             </div>
             <div className="hamburger" onClick={toggleMenu}>
                 <span className={`bar ${isOpen ? 'open' : ''}`}></span>

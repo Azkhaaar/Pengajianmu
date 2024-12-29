@@ -3,13 +3,13 @@ import './KajianKu.css';
 
 const Kajianku = () => {
   const [kajianList, setKajianList] = useState([]);
-  const [newParticipant, setNewParticipant] = useState({ name: '', age: '', address: '' });
+  const [newParticipant, setNewParticipant] = useState({ name: '', age: '', address: '', foto: null });
   const [selectedKajian, setSelectedKajian] = useState('');
   const [message, setMessage] = useState('');
 
   const availableKajian = [
     { id: 1, tema: 'Kajian Ahad Pagi', jadwal: 'Ahad, 15 Desember 2024, 06.00 - 07.00' },
-    { id: 2, tema: 'Kenali Siapa Nabimu', jadwal: 'Setiap Rabu, 19:0017 Desember 2024, 18.30 - 19.00' },
+    { id: 2, tema: 'Kenali Siapa Nabimu', jadwal: 'Setiap Rabu, 17 Desember 2024, 18.30 - 19.00' },
   ];
 
   useEffect(() => {
@@ -28,20 +28,25 @@ const Kajianku = () => {
     setNewParticipant({ ...newParticipant, [name]: value });
   };
 
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+    setNewParticipant({ ...newParticipant, foto: file });
+  };
+
   const handleKajianChange = (e) => {
     setSelectedKajian(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (newParticipant.name && newParticipant.age && newParticipant.address && selectedKajian) {
+    if (newParticipant.name && newParticipant.age && newParticipant.address && newParticipant.foto && selectedKajian) {
       const newEntry = {
         ...newParticipant,
         kajian: selectedKajian,
         id: Date.now(), 
       };
       setKajianList([...kajianList, newEntry]);
-      setNewParticipant({ name: '', age: '', address: '' });
+      setNewParticipant({ name: '', age: '', address: '', foto: null });
       setSelectedKajian('');
       setMessage('Kajian berhasil ditambahkan!');
     } else {
@@ -54,9 +59,12 @@ const Kajianku = () => {
     setMessage('Kajian berhasil dibatalkan!');
   };
 
+  const getImagePreview = (file) => {
+    return file ? URL.createObjectURL(file) : null;
+  };
+
   return (
     <div className="kajianku">
-
       <section className="introduction">
         <h2>Selamat Datang di Kajianku</h2>
         <p>
@@ -72,53 +80,68 @@ const Kajianku = () => {
       ) : (
         <div className="kajian-list">
           <h3>Daftar Kajian yang Diikuti:</h3>
-          <ul>
+          <div className="kajian-items">
             {kajianList.map(kajian => (
-              <li key={kajian.id}>
-                {kajian.kajian} - {kajian.name} ({kajian.age} tahun) - {kajian.address}
-                <button className="cancel-button" onClick={() => handleCancel(kajian.id)}>Cancel</button>
-              </li>
+              <div className="kajian-item" key={kajian.id}>
+                <div className="kajian-hover">
+                  <img src={getImagePreview(kajian.foto)} alt={kajian.name} className="kajian-foto" />
+                  <p><strong>Nama:</strong> {kajian.name}</p>
+                  <p><strong>Usia:</strong> {kajian.age} tahun</p>
+                  < p><strong>Alamat:</strong> {kajian.address}</p>
+                  <p><strong>Kajian:</strong> {kajian.kajian}</p>
+                  <button className="cancel-button" onClick={() => handleCancel(kajian.id)}>Batalkan Kajian</button>
+                </div>
+              </div>
             ))}
-          </ul>
+          </div>
         </div>
       )}
 
-      <form className="kajian-form" onSubmit={handleSubmit}>
-        <h3>Form Pendaftaran Kajian</h3>
-        <input
-          type="text"
-          name="name"
-          placeholder="Nama Lengkap"
-          value={newParticipant.name}
-          onChange={handleInputChange}
-          required
+      <form onSubmit={handleSubmit} className="kajian-form">
+        <h3>Daftar Kajian Baru</h3>
+        <input 
+          type="text" 
+          name="name" 
+          placeholder="Nama" 
+          value={newParticipant.name} 
+          onChange={handleInputChange} 
+          required 
         />
-        <input
-          type="number"
-          name="age"
-          placeholder="Usia"
-          value={newParticipant.age }
-          onChange={handleInputChange}
-          required
+        <input 
+          type="number" 
+          name="age" 
+          placeholder="Usia" 
+          value={newParticipant.age} 
+          onChange={handleInputChange} 
+          required 
         />
-        <input
-          type="text"
-          name="address"
-          placeholder="Alamat"
-          value={newParticipant.address}
-          onChange={handleInputChange}
-          required
+        <input 
+          type="text" 
+          name="address" 
+          placeholder="Alamat" 
+          value={newParticipant.address} 
+          onChange={handleInputChange} 
+          required 
         />
         <select value={selectedKajian} onChange={handleKajianChange} required>
           <option value="">Pilih Kajian</option>
           {availableKajian.map(kajian => (
-            <option key={kajian.id} value={kajian.tema}>{kajian.tema} - {kajian.jadwal}</option>
+            <option key={kajian.id} value={kajian.tema}>{kajian.tema}</option>
           ))}
         </select>
+        <label htmlFor="foto">Upload Foto</label>
+        <input 
+          type="file" 
+          accept="image/*" 
+          onChange={handleFileChange} 
+          required 
+        />
+        {newParticipant.foto && (
+          <img src={getImagePreview(newParticipant.foto)} alt="Preview" className="preview-foto" />
+        )}
         <button type="submit">Daftar Kajian</button>
+        {message && <p className="message">{message}</p>}
       </form>
-
-      {message && <p className="message">{message}</p>}
     </div>
   );
 };

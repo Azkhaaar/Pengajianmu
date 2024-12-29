@@ -5,68 +5,65 @@
 .kajianku {
     font-family: Arial, sans-serif;
     padding: 20px;
-    background-color: #f0f4f8; 
+    background-color: #f9f9f9; /* Warna latar belakang yang konsisten */
 }
 
-.kajianku-header {
+.introduction {
     text-align: center;
     margin-bottom: 20px;
 }
 
-.introduction {
-    margin: 20px 0;
-    padding: 15px;
-    background-color: #ffffff; 
+.kajian-list {
+    margin-bottom: 20px;
+}
+
+.kajian-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.kajian-item {
+    position: relative;
+    width: calc(33.333% - 20px);
+    overflow: hidden;
+}
+
+.kajian-hover {
+    background-color: #ffffff; /* Warna latar belakang item kajian */
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    transition: transform 0.3s ease;
 }
 
-h2 {
-    color: #4a148c; 
+.kajian-hover:hover {
+    transform: scale(1.05); /* Efek hover */
 }
 
-.kajian-list {
-    margin-top: 20px;
-}
-
-.no-kajian {
-    text-align: center;
-    margin: 20px 0;
-}
-
-.add-kajian-button {
-    padding: 10px 20px;
-    background-color: #4caf50; 
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.add-kajian-button:hover {
-    background-color: #45a049; 
+.kajian-foto {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
 }
 
 .kajian-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
     margin-top: 20px;
-    padding: 15px;
-    background-color: #ffffff; 
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .kajian-form input,
 .kajian-form select {
-    width: 100%;
     padding: 10px;
-    margin: 10px 0;
     border: 1px solid #ccc;
     border-radius: 5px;
 }
 
 .kajian-form button {
     padding: 10px 20px;
-    background-color: #2196f3; 
+    background-color: #2196f3; /* Warna tombol */
     color: white;
     border: none;
     border-radius: 5px;
@@ -74,24 +71,79 @@ h2 {
 }
 
 .kajian-form button:hover {
-    background-color: #1976d2; 
+    background-color: #1976d2; /* Warna hover tombol */
+}
+
+.message {
+    color: green;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.no-kajian {
+    text-align: center;
+    margin: 20px 0;
 }
 
 .cancel-button {
-    margin-left: 10px;
-    padding: 5px 10px;
-    background-color: #f44336; 
+    background-color: red;
     color: white;
     border: none;
+    padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
 }
 
 .cancel-button:hover {
-    background-color: #d32f2f; 
+    background-color: darkred; /* Warna hover untuk tombol batal */
 }
 
-.message {
-    margin-top: 20px;
-    color: #4caf50; 
+.preview-foto {
+    max-width: 150px; /* Atur lebar maksimum gambar */
+    max-height: 150px; /* Atur tinggi maksimum gambar */
+    border-radius: 8px; /* Tambahkan border-radius untuk tampilan yang lebih baik */
+    margin-top: 10px; /* Tambahkan margin atas untuk jarak dari elemen sebelumnya */
+}
+
+input[type="file"] {
+    padding: 10px; /* Padding untuk input file */
+    border: 1px solid #ccc; /* Border yang sama dengan input lainnya */
+    border-radius: 5px; /* Border-radius yang sama */
+    background-color: #ffffff; /* Warna latar belakang yang sama */
+    margin-top: 10px; /* Jarak atas untuk pemisahan dari elemen sebelumnya */
+    width: 100%; /* Lebar penuh agar sesuai dengan input lainnya */
+    cursor: pointer; /* Menunjukkan bahwa ini dapat diklik */
+}
+
+input[type="file"]::file-selector-button {
+    background-color: #2196f3; /* Warna tombol upload */
+    color: white; /* Warna teks tombol */
+    border: none; /* Menghilangkan border default */
+    border-radius: 5px; /* Border-radius untuk tombol */
+    padding: 10px; /* Padding untuk tombol */
+    cursor: pointer; /* Menunjukkan bahwa ini dapat diklik */
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #1976d2; /* Warna tombol saat hover */
+}
+
+@media (max-width: 768px) {
+    .kajian-item {
+        width: 100%; /* Mengatur lebar item kajian menjadi 100% pada perangkat mobile */
+    }
+
+    .kajian-hover {
+        padding: 10px; /* Mengurangi padding untuk perangkat mobile */
+    }
+
+    .kajian-hover p {
+        font-size: 14px; /* Mengatur ukuran font untuk teks di dalam kajian-hover */
+        text-align: center; /* Menyelaraskan teks ke tengah */
+    }
+
+    .cancel-button {
+        width: 100%; /* Membuat tombol batalkan penuh lebar pada perangkat mobile */
+        padding: 10px; /* Menambah padding untuk tombol */
+    }
 }
