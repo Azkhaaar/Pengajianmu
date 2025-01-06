@@ -18,9 +18,11 @@
 }
 
 .kajian-items {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-basis: 100%;
+    margin: 5px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
 }
 
 .kajian-item {
@@ -30,21 +32,17 @@
 }
 
 .kajian-hover {
-    background-color: #ffffff; /* Warna latar belakang item kajian */
+    background-color: #ffffff;
     border-radius: 8px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     padding: 15px;
     transition: transform 0.3s ease;
+    margin: 5px
+    
 }
 
 .kajian-hover:hover {
-    transform: scale(1.05); /* Efek hover */
-}
-
-.kajian-foto {
-    width: 100%;
-    height: auto;
-    border-radius: 8px;
+    transform: scale(1.05);
 }
 
 .kajian-form {
@@ -71,7 +69,7 @@
 }
 
 .kajian-form button:hover {
-    background-color: #1976d2; /* Warna hover tombol */
+    background-color: #1976d2;
 }
 
 .message {
@@ -95,55 +93,67 @@
 }
 
 .cancel-button:hover {
-    background-color: darkred; /* Warna hover untuk tombol batal */
-}
-
-.preview-foto {
-    max-width: 150px; /* Atur lebar maksimum gambar */
-    max-height: 150px; /* Atur tinggi maksimum gambar */
-    border-radius: 8px; /* Tambahkan border-radius untuk tampilan yang lebih baik */
-    margin-top: 10px; /* Tambahkan margin atas untuk jarak dari elemen sebelumnya */
+    background-color: darkred;
 }
 
 input[type="file"] {
-    padding: 10px; /* Padding untuk input file */
-    border: 1px solid #ccc; /* Border yang sama dengan input lainnya */
-    border-radius: 5px; /* Border-radius yang sama */
-    background-color: #ffffff; /* Warna latar belakang yang sama */
-    margin-top: 10px; /* Jarak atas untuk pemisahan dari elemen sebelumnya */
-    width: 100%; /* Lebar penuh agar sesuai dengan input lainnya */
-    cursor: pointer; /* Menunjukkan bahwa ini dapat diklik */
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #ffffff;
+    margin-top: 10px;
+    width: 100%;
+    cursor: pointer;
 }
 
 input[type="file"]::file-selector-button {
-    background-color: #2196f3; /* Warna tombol upload */
-    color: white; /* Warna teks tombol */
-    border: none; /* Menghilangkan border default */
-    border-radius: 5px; /* Border-radius untuk tombol */
-    padding: 10px; /* Padding untuk tombol */
-    cursor: pointer; /* Menunjukkan bahwa ini dapat diklik */
+    background-color: #2196f3;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px;
+    cursor: pointer;
 }
 
 input[type="file"]::file-selector-button:hover {
-    background-color: #1976d2; /* Warna tombol saat hover */
+    background-color: #1976d2;
 }
 
 @media (max-width: 768px) {
     .kajian-item {
-        width: 100%; /* Mengatur lebar item kajian menjadi 100% pada perangkat mobile */
+        width: 100%;
     }
 
     .kajian-hover {
-        padding: 10px; /* Mengurangi padding untuk perangkat mobile */
+        padding: 10px;
     }
 
     .kajian-hover p {
-        font-size: 14px; /* Mengatur ukuran font untuk teks di dalam kajian-hover */
-        text-align: center; /* Menyelaraskan teks ke tengah */
+        font-size: 14px;
+        text-align: center;
     }
 
     .cancel-button {
-        width: 100%; /* Membuat tombol batalkan penuh lebar pada perangkat mobile */
-        padding: 10px; /* Menambah padding untuk tombol */
+        width: 100%;
+        padding: 5px;
+        margin: 5px
     }
+
+    .edit-button {
+        width: 100%;
+        padding: 5px;
+        margin: 5px
+    }
+}
+.edit-button {
+    background-color: #4caf50; /* Warna hijau untuk tombol edit */
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.edit-button:hover {
+    background-color: #388e3c; /* Warna lebih gelap saat hover */
 }

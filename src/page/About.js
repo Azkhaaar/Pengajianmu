@@ -4,8 +4,8 @@ import './About.css';
 const About = () => {
   const faqs = [
     {
-      question: "Apa itu PengajianMu?",
-      answer: "PengajianMu adalah platform yang menyediakan berbagai kajian dan informasi seputar kegiatan keagamaan, khususnya dalam konteks Muhammadiyah."
+      question: "Bagaimana Majelis Dapat Menambahkan Kajian Mereka?",
+      answer: "Anda bisa menghubungi contact person yang ada dibawah, bisa nomor handphone maupun email. Nantinya dari tim PengajianMu akan menveritifikasi kajian anda apakah lolos untuk dimasukkan ke website kita atau tidak."
     },
     {
       question: "Bagaimana cara mendaftar kajian?",
@@ -24,8 +24,8 @@ const About = () => {
       answer: "Ya, Anda dapat mengikuti sebanyak mungkin kajian yang Anda inginkan."
     },
     {
-      question: "Bagaimana cara menghubungi tim PengajianMu?",
-      answer: "Anda dapat menghubungi kami melalui email di info@pengajianmu.com atau melalui media sosial kami."
+      question: "Bagaimana saya dapat melaporkan ke pihak PengajianMu jika ternyata ada pengajian yang melakukan indikasi penipuan ataupun kriminal?",
+      answer: "Anda dapat menghubungi kami melalui email di info@pengajianmu.com atau melalui nomor handphone dan media sosial kami agar kami dapat menindak lanjuti tindakan majelis tersebut."
     },
   ];
 

@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import './Kajianmu.css'; 
 
 const KajianMu = () => {
-  const [selectedFoto, setSelectedFoto] = useState(null); // State untuk menyimpan foto yang dipilih
+  const [selectedFoto, setSelectedFoto] = useState(null);
 
   const kajianList = [
     {
@@ -21,14 +21,38 @@ const KajianMu = () => {
       jadwal: '17 Desember 2024, 18.30 - 19.00',
       penjelasan: 'Pembahasan Kitab Tsalatsatul Ushul',
     },
+    {
+      id: 3,
+      foto: 'Image/Kajian3.jpg', 
+      tema: 'Cara Shalat Dalam Himpunan Putusan Tarjih',
+      pengisi: 'Ustad Miroj Mustajib',
+      jadwal: '6 Oktober 2024, 06.00 - 07.00',
+      penjelasan: 'Membawa Infaq Terbaik Dan Datang Lebih Awal',
+    },
+    {
+      id: 4,
+      foto: 'Image/Kajian4.jpg', 
+      tema: 'Shalat Dan Puasa : Antara Yang Bidah Dan Ibadah',
+      pengisi: 'Dr. H. Ruslan Fariadi AM., S.Ag., M.S.I.',
+      jadwal: '1 Januari 2025, 19.45 - Selesai',
+      penjelasan: 'Kapita Selekta Putusan Dan Fatwa Tarjih',
+    },
+    {
+      id: 5,
+      foto: 'Image/Kajian5.jpg', 
+      tema: 'Terbawa Arus',
+      pengisi: 'Ustadzah Floweria, S.IP',
+      jadwal: '8 November 2024, 16.00 - Selesai',
+      penjelasan: 'Khusus Untuk Muslimah',
+    },
   ];
 
   const handleFotoClick = (foto) => {
-    setSelectedFoto(foto); // Set foto yang dipilih
+    setSelectedFoto(foto);
   };
 
   const handleCloseModal = () => {
-    setSelectedFoto(null); // Tutup modal
+    setSelectedFoto(null);
   };
 
   return (
